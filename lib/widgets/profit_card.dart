@@ -4,12 +4,14 @@ import 'package:material_symbols_icons/material_symbols_icons.dart';
 class ProfitCard extends StatelessWidget {
   const ProfitCard({super.key});
 
+  final portfolioValue = '13,240,100.00', valueUpDown = '1.72';
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(10.0),
       child: Container(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(top: 24, left: 20, right: 20, bottom: 20),
         width: double.infinity,
         decoration: BoxDecoration(
           color: Color.fromRGBO(2, 207, 217, 1),
@@ -20,7 +22,10 @@ class ProfitCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Portfolio value', style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white70)),
+            Text(
+              'Portfolio value',
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white70, fontWeight: FontWeight.bold),
+            ),
             SizedBox(height: 4),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,12 +33,15 @@ class ProfitCard extends StatelessWidget {
               textBaseline: TextBaseline.alphabetic,
               children: [
                 Text(
-                  '\$13,240,100.00',
+                  '\$$portfolioValue',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
                 ),
                 Row(
                   children: [
-                    Text('1.72%', style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white70)),
+                    Text(
+                      '$valueUpDown%',
+                      style: Theme.of(context).textTheme.titleSmall?.copyWith(color: Colors.white70, fontWeight: FontWeight.bold),
+                    ),
                     SizedBox(width: 3),
                     Icon(Symbols.arrow_circle_up, color: const Color.fromARGB(231, 255, 252, 252), fill: 1.0),
                   ],
@@ -67,7 +75,10 @@ class _ProfitLossRow extends StatelessWidget {
         SizedBox(width: 6),
         Row(
           children: [
-            Text('$label: ', style: Theme.of(content).textTheme.bodyLarge?.copyWith(color: Colors.white70)),
+            Text(
+              '$label: ',
+              style: Theme.of(content).textTheme.bodyLarge?.copyWith(color: Colors.white70, fontWeight: FontWeight.bold),
+            ),
             Text(
               '\$$value',
               style: Theme.of(content).textTheme.bodyLarge?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),

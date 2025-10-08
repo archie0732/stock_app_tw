@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/material_symbols_icons.dart';
 import 'package:stock_tw/widgets/profit_card.dart';
+import 'package:stock_tw/widgets/trendstock_selector.dart';
+import 'package:stock_tw/widgets/wishstock_selector.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,10 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Icon(Symbols.bolt_sharp, color: const Color.fromARGB(255, 42, 241, 221), fill: 1.0, size: 30),
             SizedBox(width: 2),
-            Text(
-              'R7Stock',
-              style: TextStyle(color: Color.fromRGBO(0, 0, 0, 1), fontWeight: FontWeight.bold),
-            ),
+            Text('R7Stock', style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold)),
           ],
         ),
         actions: <Widget>[
@@ -76,16 +75,17 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           SizedBox(height: 26),
-          Padding(padding: const EdgeInsets.symmetric(horizontal: 4.0), child: ProfitCard()),
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 240, 239, 239),
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(24), topRight: Radius.circular(24)),
-                boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 10.0, offset: Offset(0, -5))],
-              ),
+          Padding(padding: const EdgeInsets.symmetric(horizontal: 1.0), child: ProfitCard()),
+          SizedBox(height: 24),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(36), topRight: Radius.circular(36)),
+              color: Colors.white,
+              boxShadow: [BoxShadow(color: const Color.fromARGB(255, 199, 199, 199), blurRadius: 2, offset: Offset(0, -0.5))],
             ),
+            child: TrendingStocksSection(),
           ),
+          Expanded(child: WishstockSelector()),
         ],
       ),
     );
